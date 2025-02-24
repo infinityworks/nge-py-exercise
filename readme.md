@@ -26,7 +26,7 @@ Python version of the NGE technical test. It uses the `flask`\_ microframework.
   $ pip-sync
 
 - Start the app:
-  $ python app.py
+  $ flask run
 
 - Visit http://localhost:5000 to view the application.
 
