@@ -61,10 +61,10 @@ body {
     width: 640px;
     margin: 0 auto;
     padding: 0;
-    height: 25px;
+    height: 48px;
     text-indent: -9999px;
     background: transparent url(site-logo.svg) no-repeat center top;
-    background-size: 640px 25px;
+    background-size: 640px 48px;
 }
 
 .nav-masthead .nav-link {
@@ -117,4 +117,8 @@ body {
  */
 .mastfoot {
     color: rgba(255, 255, 255, .5);
+}
+
+.mastfoot .accent {
+    color: #fff;
 }

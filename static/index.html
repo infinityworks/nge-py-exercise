@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>IW Tech Test</title>
+    <title>NGE Tech Test</title>
     <link rel="stylesheet" href="assets/bootstrap.min.css">
     <link rel="stylesheet" href="assets/style.css">
-    <script src="assets/jquery-3.3.1.min.js"></script>
 
 </head>
 <body>
 <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto">
         <div class="inner">
-            <h3 class="masthead-brand">Infinity Works Tech Test</h3>
+            <h3 class="masthead-brand">Accenture Next Gen Engineering Tech Test</h3>
         </div>
     </header>
 
@@ -38,46 +37,43 @@
 
     </main>
 
-    <footer class="mastfoot mt-auto">
-        <div class="inner">
-            <p><a href="http://www.inifinityworks.com">Infinity Works</a> - Full Stack Tech Test. <a
-                    href="https://engineering.infinityworks.com/hiring-our-jugglers/" class="btn btn-secondary">Find out
-                more?</a></p>
+    <footer class="mastfoot mt-auto center">
+        <div class="inner text-center">
+            <p>
+                <span class="accent">Accenture Next Gen Engineering</span>
+                <span>- Full Stack Tech Test.</span>
+            </p>
         </div>
     </footer>
 </div>
 
 <script>
-    $(function () {
+    (async () => {
 
-        $('.js-authority-select').on('change', function () {
-            loadAuthority(this.value);
+        const loadAuthority = async (id) => {
+            const response = await fetch(`/api/${id}`);
+            const ratings = await response.json();
+            const table = document.querySelector('.js-authority-table');
+            table.innerHTML = '';
+            ratings.map(rating => table.innerHTML += `<tr>
+                <td>${rating.name}</td>
+                <td>${rating.value.toFixed(1)}%</td>
+            </tr>`);
+        };
+
+        document.querySelector('.js-authority-select').addEventListener('change', (e) => loadAuthority(e.target.value));
+
+        const response = await fetch('/api');
+        const authorities = await response.json();
+        const select = document.querySelector('.js-authority-select');
+        select.innerHTML = '';
+        authorities.map((authority, i) => {
+            if (i === 0) {
+                loadAuthority(authority.id);
+            }
+            select.innerHTML += `<option value="${authority.id}">${authority.name}</option>`;
         });
-
-        $.get('/api', {}, function (resp) {
-            var selectElem = $('.js-authority-select');
-            selectElem.html('');
-            $.each(resp, function (key, authority) {
-                if(key === 0){
-                    loadAuthority(authority.id);
-                }
-                selectElem.append('<option value="' + authority.id + '">' + authority.name + '</option>');
-            });
-
-        });
-
-
-    });
-
-    function loadAuthority(id) {
-        $.get('/api/' + id, {}, function (resp) {
-            var tableElem = $('.js-authority-table');
-            tableElem.html('');
-            $.each(resp, function (key, rating) {
-                tableElem.append('<tr><td>' + rating.name + '</td><td>' + rating.value.toFixed(1) + '%</td></tr>');
-            });
-        });
-    }
+    })();
 </script>
 
 </body>
