@@ -1,8 +1,6 @@
 # Accenture Next Gen Engineering - Full Stack Tech Test: Python
 
-Python version of the NGE technical test. It uses the `flask`\_ microframework.
-
-.. \_flask: http://flask.pocoo.org
+Python version of the NGE technical test. It uses the `flask` microframework - http://flask.pocoo.org
 
 ![Preview of Frontend](preview.png)
 
