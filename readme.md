@@ -1,8 +1,6 @@
 # Accenture Next Gen Engineering - Full Stack Tech Test: Python
 
-Python version of the NGE technical test. It uses the `flask`\_ microframework.
-
-.. \_flask: http://flask.pocoo.org
+Python version of the NGE technical test. It uses the `flask` microframework - http://flask.pocoo.org
 
 ![Preview of Frontend](preview.png)
 
@@ -17,16 +15,23 @@ Python version of the NGE technical test. It uses the `flask`\_ microframework.
 
 - Create and activate a new virtual environment:
 
-  $ python3 -m venv venv
-  $ source venv/bin/activate
+```bash
+$ python3 -m venv venv
+$ source venv/bin/activate
+```
 
 - Install dependencies::
 
-  $ python -m pip install pip-tools
-  $ pip-sync
+```bash
+$ python -m pip install pip-tools
+$ pip-sync
+```
 
 - Start the app:
-  $ flask run
+
+```bash
+$ flask run
+```
 
 - Visit http://localhost:5000 to view the application.
 
